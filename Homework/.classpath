@@ -3,5 +3,7 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="src" path="V.46"/>
 	<classpathentry kind="src" path="Metoder_Uppgifter"/>
+	<classpathentry kind="src" path="V.49"/>
+	<classpathentry kind="src" path="Metod"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
