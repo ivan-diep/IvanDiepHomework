@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="src" path="V.46"/>
 	<classpathentry kind="src" path="Metoder_Uppgifter"/>
 	<classpathentry kind="src" path="V.49"/>
 	<classpathentry kind="src" path="Metod"/>
 	<classpathentry kind="src" path="V.51"/>
+	<classpathentry kind="src" path="V.2"/>
+	<classpathentry kind="src" path="W.2"/>
+	<classpathentry kind="src" path="Gissa Tal spel"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
