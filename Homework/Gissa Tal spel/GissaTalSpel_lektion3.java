@@ -1,8 +1,9 @@
 
+
 import java.util.Random;
 import java.util.Scanner;
 
-public class GissaTalSpel_Lektion2 {
+public class GissaTalSpel_lektion3 {
 
 
 	public static void main(String[] args) {
@@ -97,4 +98,3 @@ public static void guess(int choice, int NummerAttGissa, int Gissa, int Gissning
 	}
 // efter du har spelat så visar det hur många gissningar de tog och vilket nummer det va.
 }
-
