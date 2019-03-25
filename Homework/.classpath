@@ -9,5 +9,6 @@
 	<classpathentry kind="src" path="V.2"/>
 	<classpathentry kind="src" path="W.2"/>
 	<classpathentry kind="src" path="Gissa Tal spel"/>
+	<classpathentry kind="src" path="SecureDoor"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

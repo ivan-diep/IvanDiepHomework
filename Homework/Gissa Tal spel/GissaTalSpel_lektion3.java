@@ -32,6 +32,7 @@ public class GissaTalSpel_lektion3 {
 	// menu där du får välja olika nivåer på spelet
 
 			guess(choice, NummerAttGissa, Gissa, Gissningar);
+			//denna anropar metoden.
 }
 	}
 
