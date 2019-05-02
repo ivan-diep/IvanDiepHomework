@@ -1,34 +1,29 @@
+import java.util.Scanner;
+import java.util.Arrays;
 
-public class Hangman {
-	 public static void main(String[] args) {
-	        String[] words = {"writer", "that", "program"};
-	        // Tar en random ord från arrayern
-	        //Math.random för att de ska ta en random ord.
-	        int randomWordNumber = (int) (Math.random() * words.length);
-	        // En array som tar in det du skriver
-	        char[] enteredLetters = new char[words[randomWordNumber].length()];
-	        
-	        int triesCount = 0; // antal försöker
-	        boolean wordIsGuessed = false;
-	        do {
-	        // infinitely iterate through cycle as long as enterLetter returns true
-	        // om enterLetter blir false så betyder det att man har gissar alla ord
-	        switch (enterLetter(words[randomWordNumber], enteredLetters)) {
-	            case 0:
-	                triesCount++;
-	                break;
-	            case 1:
-	                triesCount++;
-	                break;
-	            case 2:
-	                break;
-	            case 3:
-	                wordIsGuessed = true;
-	                break;
-	        }
-	        } while (! wordIsGuessed);
-	        System.out.println("ordet är " + words[randomWordNumber] +
-	            " fel bokstav " + (triesCount -findEmptyPosition(enteredLetters)) +
-	            " gånger");
-	    }
+
+public class Hangman{
+
+	
+	// en array med ord 
+	private static String[] words = {"terminator", "banana", "computer", "cow", "rain", "water" };
+	
+	// Math.random gör att den tar någon av dom orden random, den typ lottar och har ingen bestämd 
+	private static String word = words[(int) (Math.random() * words.length)];
+	
+	private static String asterisk = new String(new char[word.length()]).replace("\0", "*");
+	
+	private static int count = 0;
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+
+		while (count < 7 && asterisk.contains("*")) {
+			System.out.println("Gissa ordet, skriv en bokstav i taget.");
+			System.out.println(asterisk);
+			String guess = sc.next();
+			hang(guess);
+		}
+		sc.close();
+	}
 }
