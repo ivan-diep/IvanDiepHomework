@@ -15,25 +15,30 @@ public class Hangman{
 		OrdManKanGissaPa.add("eclipse");
 		OrdManKanGissaPa.add("kärnfysik");
 		OrdManKanGissaPa.add("aftonbladet");
+		OrdManKanGissaPa.add("koldioxidutsläpp");
+
 		
 		
 		// du har 7 gissningar
 		int gissningar = 7; 
 		
-		// denna metod tar en random ord från listan, 7 försök att gissa
-		metod(slump(OrdManKanGissaPa), gissningar);
+		// denna metod tar en random ord från listan, 7 försök att gissa på
+		boolean spelet=true;
+		while(spelet) {
+		spelet=metod(slump(OrdManKanGissaPa), gissningar, spelet);
+		}
 		
 
 	}
         
-		public static void metod(String ratt_bokstaver, int gissningar) {
+		public static boolean metod(String ratt_bokstaver, int gissningar, boolean spelet) {
     		Scanner input = new Scanner(System.in);
     		
     		System.out.println("Gissa på en bokstav, du har bara 7 försök");
     		
     		
     		
-    		ArrayList<Character> l=new ArrayList<Character>();
+    		ArrayList<Character> SammaGissning=new ArrayList<Character>();
     		
     		//det blir stjärnor på bokstäver man inte har gissat på
     		char[] stars = new char[ratt_bokstaver.length()]; 
@@ -58,13 +63,13 @@ public class Hangman{
     			char x = input.next().charAt(0); 
 
     			
-    			if(l.contains(x)) {
-    				//om du skriver samma bokstav kommer detta
+    			if(SammaGissning.contains(x)) {
+    				//om du gissar samma bokstav mer än en gång kommer detta
     				System.out.println("Du har redan skrivit bokstaven");
     				continue;
     			}
     			
-    			l.add(x);
+    			SammaGissning.add(x);
     			
     			//byter ut stjärnorna (*) till de rätta bokstaven du har skrivit i rätt index
     			if (ratt_bokstaver.contains(x + "")) {
@@ -76,6 +81,7 @@ public class Hangman{
     			}
     				else {
     					//om du gissar fel bokstav så blir det -1 försök
+    					//så du kan gissa fel 7 gånger
     					gissningar--; 
     				}
     			
@@ -83,7 +89,16 @@ public class Hangman{
                       //checkar om det är rätt ord, om det är så skrivs detta ut
     				System.out.println(stars);
     				System.out.println("Grattis du vann!");
-    				break;
+    				System.out.println("vill du spela igen?");
+        			System.out.println("(1) ja     (2) nej");
+        			String svar = input.next();
+        			if(svar.equals("1")) {    				
+        				spelet = true;
+        			}
+        			else {
+        				System.out.println("okej, hejdå");
+        				break;
+        			}
     			}
     			
     			
@@ -96,100 +111,30 @@ public class Hangman{
     			//om du har slut på försök så har du förlorat och det rätta ordet kommer visas
     			System.out.println("Du är skit på hänga gubbe!");
     			System.out.println("Det rätta ordet var:  " + ratt_bokstaver);
+    			System.out.println("vill du spela igen?");
+    			System.out.println("(1) ja     (2) nej");
+    			String svar = input.next();
+    			if(svar.equals("1")) {   //om du skriver 1 så ska spelet starta om 				
+    				spelet = true;
+    			}
+    			else {
+    				System.out.println("okej, hejdå"); //om du skriver något annat avslutas spelet
+    				spelet =false;
+    			}
     		}
+			return spelet;
     		
     		}
 
-    	public static String slump(ArrayList<String> temp) {
+    	public static String slump(ArrayList<String> temp) { // denna metoden är en slumpmetod 
             Random rand = new Random(); 
             return temp.get(rand.nextInt(temp.size()));
-    	}
-
     	
-    	public static void hangmanImage() {
-    		if (gissningar == 1) {
-    			System.out.println("Wrong guess, try again");
-    			System.out.println();
-    			System.out.println();
-    			System.out.println();
-    			System.out.println();
-    			System.out.println("___|___");
-    			System.out.println();
-    		}
-    		if (count == 2) {
-    			System.out.println("Wrong guess, try again");
-    			System.out.println("   |");
-    			System.out.println("   |");
-    			System.out.println("   |");
-    			System.out.println("   |");
-    			System.out.println("   |");
-    			System.out.println("   |");
-    			System.out.println("   |");
-    			System.out.println("___|___");
-    		}
-    		if (count == 3) {
-    			System.out.println("Wrong guess, try again");
-    			System.out.println("   ____________");
-    			System.out.println("   |");
-    			System.out.println("   |");
-    			System.out.println("   |");
-    			System.out.println("   |");
-    			System.out.println("   |");
-    			System.out.println("   |");
-    			System.out.println("   | ");
-    			System.out.println("___|___");
-    		}
-    		if (count == 4) {
-    			System.out.println("Wrong guess, try again");
-    			System.out.println("   ____________");
-    			System.out.println("   |          _|_");
-    			System.out.println("   |         /   \\");
-    			System.out.println("   |        |     |");
-    			System.out.println("   |         \\_ _/");
-    			System.out.println("   |");
-    			System.out.println("   |");
-    			System.out.println("   |");
-    			System.out.println("___|___");
-    		}
-    		if (count == 5) {
-    			System.out.println("Wrong guess, try again");
-    			System.out.println("   ____________");
-    			System.out.println("   |          _|_");
-    			System.out.println("   |         /   \\");
-    			System.out.println("   |        |     |");
-    			System.out.println("   |         \\_ _/");
-    			System.out.println("   |           |");
-    			System.out.println("   |           |");
-    			System.out.println("   |");
-    			System.out.println("___|___");
-    		}
-    		if (count == 6) {
-    			System.out.println("Wrong guess, try again");
-    			System.out.println("   ____________");
-    			System.out.println("   |          _|_");
-    			System.out.println("   |         /   \\");
-    			System.out.println("   |        |     |");
-    			System.out.println("   |         \\_ _/");
-    			System.out.println("   |           |");
-    			System.out.println("   |           |");
-    			System.out.println("   |          / \\ ");
-    			System.out.println("___|___      /   \\");
-    		}
-    		if (count == 7) {
-    			System.out.println("GAME OVER!");
-    			System.out.println("   ____________");
-    			System.out.println("   |          _|_");
-    			System.out.println("   |         /   \\");
-    			System.out.println("   |        |     |");
-    			System.out.println("   |         \\_ _/");
-    			System.out.println("   |          _|_");
-    			System.out.println("   |         / | \\");
-    			System.out.println("   |          / \\ ");
-    			System.out.println("___|___      /   \\");
-    			System.out.println("GAME OVER! The word was " + word);
-    		}
+
+		}
+    	}
 	
 
     
-}
+
 
