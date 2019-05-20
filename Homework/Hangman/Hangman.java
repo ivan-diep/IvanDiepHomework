@@ -19,18 +19,25 @@ public class Hangman{
 
 		
 		
-		// du har 7 gissningar
-		int gissningar = 7; 
 		
 		// denna metod tar en random ord från listan, 7 försök att gissa på
 		boolean spelet=true;
-		while(spelet) {
+		while(spelet) { //här börjar spelet, startas också om här.
+
+			// du har 7 gissningar
+			int gissningar = 7;
+			//anropar "metod" och "slump"
 		spelet=metod(slump(OrdManKanGissaPa), gissningar, spelet);
 		}
 		
 
 	}
         
+	
+	// denna metoden är hela spelet, ord ändras till "*" och du gissar på bokstäver, 
+	//gissar du rätt ändras "*" till bokstaven , gissar du fel räknas det ner
+	//efter du har gissat fel 7 gånger förlorar du, sedan får du välja om du vill spela om eller inte
+	//även om du vann.
 		public static boolean metod(String ratt_bokstaver, int gissningar, boolean spelet) {
     		Scanner input = new Scanner(System.in);
     		
@@ -48,7 +55,8 @@ public class Hangman{
     			stars[i] = '*';
     			
     			if (ratt_bokstaver.charAt(i) == ' ') {
-    				stars[i] = ' ';
+    	
+    			stars[i] = ' ';
 
     			}
     			i++;
@@ -59,23 +67,23 @@ public class Hangman{
     		
     		
     		// här gissar du en bokstav, du kan gissa tills du har 0 försök kvar
-    		while (gissningar > 0) {
-    			char x = input.next().charAt(0); 
+    		while (gissningar > 0 && !ratt_bokstaver.equals(String.valueOf(stars))) {
+    			char Bokstav = input.next().charAt(0); 
 
     			
-    			if(SammaGissning.contains(x)) {
+    			if(SammaGissning.contains(Bokstav)) {
     				//om du gissar samma bokstav mer än en gång kommer detta
     				System.out.println("Du har redan skrivit bokstaven");
     				continue;
     			}
     			
-    			SammaGissning.add(x);
+    			SammaGissning.add(Bokstav);
     			
     			//byter ut stjärnorna (*) till de rätta bokstaven du har skrivit i rätt index
-    			if (ratt_bokstaver.contains(x + "")) {
-    				for (int y = 0; y < ratt_bokstaver.length(); y++) { 
-    					if (ratt_bokstaver.charAt(y) == x) {
-    						stars[y] = x;
+    			if (ratt_bokstaver.contains(Bokstav + "")) {
+    				for (int stjärna = 0; stjärna < ratt_bokstaver.length(); stjärna++) { 
+    					if (ratt_bokstaver.charAt(stjärna) == Bokstav) {
+    						stars[stjärna] = Bokstav;
     					}
     				}
     			}
@@ -88,14 +96,24 @@ public class Hangman{
     			if(ratt_bokstaver.equals(String.valueOf(stars))) { 
                       //checkar om det är rätt ord, om det är så skrivs detta ut
     				System.out.println(stars);
-    				System.out.println("Grattis du vann!");
-    				System.out.println("vill du spela igen?");
-        			System.out.println("(1) ja     (2) nej");
+    				System.out.println(" ");
+        			System.out.println("             __");
+        			System.out.println("            /   \\");
+        			System.out.println("           |     |");
+        			System.out.println("            \\_ _/");
+        			System.out.println("             _|_");
+        			System.out.println("            / | \\");
+        			System.out.println("             / \\ ");
+        			System.out.println("            /   \\");
+    				System.out.println("Grattis du vann, gubben lever!");
+    				System.out.println("vill du spela igen? \n");
+        			System.out.println("(1) ja     (2) nej \n");
         			String svar = input.next();
         			if(svar.equals("1")) {    				
         				spelet = true;
         			}
-        			else {
+        			else {    				
+            				spelet = false;
         				System.out.println("okej, hejdå");
         				break;
         			}
@@ -103,30 +121,44 @@ public class Hangman{
     			
     			
     			System.out.print(stars);
-    			System.out.println("      försök kvar = " + gissningar);
+    			System.out.println("      försök kvar = " + gissningar + "\n");
 
     			}
     		
     		if(gissningar == 0) {
     			//om du har slut på försök så har du förlorat och det rätta ordet kommer visas
+    			
+    			System.out.println("   ____________");
+    			System.out.println("   |          _|_");
+    			System.out.println("   |         /   \\");
+    			System.out.println("   |        |     |");
+    			System.out.println("   |         \\_ _/");
+    			System.out.println("   |          _|_");
+    			System.out.println("   |         / | \\");
+    			System.out.println("   |          / \\ ");
+    			System.out.println("   |         /   \\");
+    			System.out.println("___|___            ");
     			System.out.println("Du är skit på hänga gubbe!");
     			System.out.println("Det rätta ordet var:  " + ratt_bokstaver);
-    			System.out.println("vill du spela igen?");
-    			System.out.println("(1) ja     (2) nej");
+    			System.out.println("vill du spela igen? \n");
+    			System.out.println("(1) ja     (2) nej \n");
     			String svar = input.next();
     			if(svar.equals("1")) {   //om du skriver 1 så ska spelet starta om 				
     				spelet = true;
     			}
     			else {
-    				System.out.println("okej, hejdå"); //om du skriver något annat avslutas spelet
     				spelet =false;
+    				System.out.println("okej, hejdå"); //om du skriver något annat avslutas spelet
+    				
     			}
     		}
 			return spelet;
     		
     		}
 
-    	public static String slump(ArrayList<String> temp) { // denna metoden är en slumpmetod 
+
+		//slumpar ord och skickar tillbaka de de okända ordet så att man kan gissa
+    	public static String slump(ArrayList<String> temp) { 
             Random rand = new Random(); 
             return temp.get(rand.nextInt(temp.size()));
     	
