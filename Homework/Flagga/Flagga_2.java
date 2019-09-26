@@ -1,3 +1,4 @@
+
 import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Scene;
@@ -7,7 +8,7 @@ import javafx.scene.shape.Rectangle;
 
 
 
-public class Flagga_1 extends Application{
+public class Flagga_2 extends Application{
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -24,22 +25,22 @@ public class Flagga_1 extends Application{
 		
 		//Här bestämmer jag vart färgerna ska vara och hur det ska se ut.
 
-		rectangle_1.setWidth(200);
-		rectangle_1.setHeight(400);
-		rectangle_1.setFill(Color.BLUE);
+		//rectangle_1.setWidth(600);
+		//rectangle_1.setHeight(150);
+		//rectangle_1.setFill(Color.White);
 		
-		rectangle_2.setTranslateX(400);
-		rectangle_2.setWidth(200);
-		rectangle_2.setHeight(400);
+		rectangle_2.setTranslateY(0);
+		rectangle_2.setWidth(600);
+		rectangle_2.setHeight(150);
 		rectangle_2.setFill(Color.RED);
 		
-		 Group root = new Group(rectangle_1,rectangle_2);
+		 Group root = new Group(rectangle_2);
 
 
 	      //Creating a scene object 
 	      Scene scene = new Scene(root, 600, 300);
 	      //Setting title to the Stage 
-	      primaryStage.setTitle("Frankrike"); 
+	      primaryStage.setTitle("Polen"); 
 	      
 	      primaryStage.setScene(scene);
 	      
