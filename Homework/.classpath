@@ -10,5 +10,9 @@
 	<classpathentry kind="src" path="W.2"/>
 	<classpathentry kind="src" path="Gissa Tal spel"/>
 	<classpathentry kind="src" path="SecureDoor"/>
+	<classpathentry kind="src" path="Hangman"/>
+	<classpathentry kind="src" path="Repitition prog 2"/>
+	<classpathentry kind="src" path="Flagga"/>
+	<classpathentry kind="src" path="Miniräknare"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
