@@ -42,13 +42,9 @@ public class Calculator1 extends Application {
     }
     
     
-    @SuppressWarnings("unchecked")
 	private void initField(){
     	char[]tecken= {'1', '2','3', '4', '5', '6', '7', '8', '9', '0'};
-    	for(char t : tecken) {
-    		Button temp = new Button(""+ t);
-    		temp.setOnAction((EventHandler<ActionEvent>) this);
-    	}
+	
     
 
     	
