@@ -24,11 +24,12 @@ public class KalkLayout {
             //knappar till panel
             addButtons(panel, "7", "8", "9","4","5","6","1","2","3","+","-","=" );
 
-            JTextField tf = new JTextField("tf");
-            tf.setEditable(true);
+            //visar vad som ska stå på skärmen
+            JTextField textfield = new JTextField("0");
+            textfield.setEditable(true);
 
             frame.getContentPane().add(panel, BorderLayout.CENTER);
-            frame.getContentPane().add(tf,BorderLayout.NORTH);
+            frame.getContentPane().add(textfield,BorderLayout.NORTH);
 
 
             frame.pack();
