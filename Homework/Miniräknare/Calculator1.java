@@ -10,6 +10,8 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
 import java.util.ArrayList;
@@ -27,7 +29,16 @@ public class Calculator1 extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         primaryStage.setTitle("Kalkulatorn");
+        
+        
+        Rectangle rectangle_1	= new Rectangle();
+		Rectangle rectangle_2	= new Rectangle();
 
+		rectangle_1.setWidth(50);
+		rectangle_1.setHeight(275);
+		rectangle_1.setFill(Color.BLUE);
+
+		
       initField();
 
       displayLayout.getChildren().add(inputField);
