@@ -46,6 +46,8 @@ public class Calculator1 extends Application implements EventHandler<ActionEvent
 
 	@Override
     public void start(Stage primaryStage) throws Exception {
+		
+		//layout
 		primaryStage.setTitle("Kalkulatorn");
 		
 		initField();
@@ -67,6 +69,7 @@ public class Calculator1 extends Application implements EventHandler<ActionEvent
 	
     
 	private void populateNumpad() {
+		//placering var knapparna ska vara
         numpadLayout.add(button1, 0, 0);
     	numpadLayout.add(button2, 1, 0);
     	numpadLayout.add(button3, 2, 0);
@@ -230,11 +233,11 @@ public class Calculator1 extends Application implements EventHandler<ActionEvent
 	public void handle(ActionEvent event) {
 		// TODO Auto-generated method stub
 		
+		//Klickbar buttons 
 		if(event.getSource().equals(button1))
 		{
 			inputField.textProperty().set(inputField.textProperty().get() + "1");
 		}
-		
 		
 		if(event.getSource().equals(button2))
 		{
