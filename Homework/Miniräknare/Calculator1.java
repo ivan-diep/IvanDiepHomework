@@ -40,10 +40,13 @@ public class Calculator1 extends Application implements EventHandler<ActionEvent
 	Button buttonMulti;
 	Button buttonSumma;  
 	Button buttonDelete;    
+	
+	//String tal = inputField.textProperty().get();
+	//String calc = "+";
 
 
 
-
+    //Minirknare layout
 	@Override
     public void start(Stage primaryStage) throws Exception {
 		
@@ -67,7 +70,7 @@ public class Calculator1 extends Application implements EventHandler<ActionEvent
     }
     
 	
-    
+    //placering vart knapparna ska vara
 	private void populateNumpad() {
 		//placering var knapparna ska vara
         numpadLayout.add(button1, 0, 0);
@@ -96,7 +99,7 @@ public class Calculator1 extends Application implements EventHandler<ActionEvent
 	}
 
 
-
+    //placering buttons
 	private void initButtons() {
 		//Initiate all buttons
     	button1 = new Button("1");
@@ -225,13 +228,16 @@ public class Calculator1 extends Application implements EventHandler<ActionEvent
         displayLayout = new VBox();
         mainLayout = new BorderPane();
     }
-
+    //klickbara buttons
 
 
 
 	@Override
-	public void handle(ActionEvent event) {
+	
+    public void handle(ActionEvent event) {
 		// TODO Auto-generated method stub
+		
+		
 		
 		//Klickbar buttons 
 		if(event.getSource().equals(button1))
@@ -286,17 +292,22 @@ public class Calculator1 extends Application implements EventHandler<ActionEvent
 		
 		if(event.getSource().equals(buttonSumma))
 		{
-			inputField.textProperty().set(inputField.textProperty().get() + "=");
+			// calculate
+			
+			inputField.textProperty().set("1337");
 		}
 		
 		if(event.getSource().equals(buttonDelete))
 		{
-			inputField.textProperty().set(inputField.textProperty().get() + "C");
+			inputField.textProperty().set("");
 		}
 		
 		if(event.getSource().equals(buttonAdd))
 		{
-			inputField.textProperty().set(inputField.textProperty().get() + "+");
+
+	
+				
+			
 		}
 		
 		if(event.getSource().equals(buttonSub))
