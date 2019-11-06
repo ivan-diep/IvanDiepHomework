@@ -22,7 +22,11 @@ public class Calculator1 extends Application implements EventHandler<ActionEvent
     GridPane numpadLayout;
     HBox utilContainer;
     BorderPane mainLayout;
-    VBox displayLayout;    
+    VBox displayLayout;  
+    
+    String tal1;
+    String op;
+    String tal2;
     
  	Button button1;
 	Button button2;
@@ -292,41 +296,69 @@ public class Calculator1 extends Application implements EventHandler<ActionEvent
 		
 		if(event.getSource().equals(buttonSumma))
 		{
-			// calculate
+			tal2 =inputField.textProperty().get();
 			
-			inputField.textProperty().set("1337");
+			
+			if(op.equals("+")) {
+				int Summa = Integer.parseInt(tal1) + Integer.parseInt(tal2);
+				inputField.textProperty().set(Summa + "");
+			}
+
+            if(op.equals("-")) {			
+				int Summa = Integer.parseInt(tal1) - Integer.parseInt(tal2);
+				inputField.textProperty().set(Summa + "");
 		}
-		
+		            
+            if(op.equals("x")) {
+				int Summa = Integer.parseInt(tal1) * Integer.parseInt(tal2);
+				inputField.textProperty().set(Summa + "");	
+            }
+            
+            if(op.equals("/")) {
+				
+				int Summa = Integer.parseInt(tal1) / Integer.parseInt(tal2);
+				inputField.textProperty().set(Summa + "");
+				
+}
+		}
 		if(event.getSource().equals(buttonDelete))
 		{
-			inputField.textProperty().set("");
+			inputField.textProperty().isEmpty(); {
+				tal1 = null;
+			}
 		}
 		
 		if(event.getSource().equals(buttonAdd))
 		{
 
-	
+			tal1 = inputField.textProperty().get();
+			op = "+";
+			inputField.textProperty().set("");
 				
 			
 		}
 		
 		if(event.getSource().equals(buttonSub))
 		{
-			inputField.textProperty().set(inputField.textProperty().get() + "-");
-		}
+			tal1 = inputField.textProperty().get();
+			op = "-";
+			inputField.textProperty().set("");		}
 		
 		if(event.getSource().equals(buttonMulti))
 		{
-			inputField.textProperty().set(inputField.textProperty().get() + "x");
-		}
+			tal1 = inputField.textProperty().get();
+			op = "x";
+			inputField.textProperty().set("");		}
 		
 		if(event.getSource().equals(buttonDiv))
 		{
-			inputField.textProperty().set(inputField.textProperty().get() + "/");
-		}
+			tal1 = inputField.textProperty().get();
+			op = "/";
+			inputField.textProperty().set("");		}
 		
 		
 	}
+
 
 
 }
