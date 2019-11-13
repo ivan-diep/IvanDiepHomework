@@ -14,6 +14,8 @@ import javafx.stage.Stage;
 
 import java.util.ArrayList;
 
+import com.sun.org.apache.xpath.internal.operations.Equals;
+
 public class Calculator1 extends Application implements EventHandler<ActionEvent>{
 	
 	//Grafiska objekt
@@ -51,6 +53,7 @@ public class Calculator1 extends Application implements EventHandler<ActionEvent
 
 
     //Minirknare layout
+	//mainmetod
 	@Override
     public void start(Stage primaryStage) throws Exception {
 		
@@ -60,6 +63,8 @@ public class Calculator1 extends Application implements EventHandler<ActionEvent
 		initField();
 		initButtons();
 		populateNumpad();
+		//gör att du inte kan skriva, man kan bara klicka.
+		inputField.setEditable(false);
 		
 		displayLayout.getChildren().add(inputField);
 		
@@ -243,7 +248,7 @@ public class Calculator1 extends Application implements EventHandler<ActionEvent
 		
 		
 		
-		//Klickbar buttons 
+		//buttons som går att klicka, event handle gör att knapparna fungerar.
 		if(event.getSource().equals(button1))
 		{
 			inputField.textProperty().set(inputField.textProperty().get() + "1");
@@ -299,6 +304,9 @@ public class Calculator1 extends Application implements EventHandler<ActionEvent
 			tal2 =inputField.textProperty().get();
 			
 			
+			//innan du klickar på +,-,x,/ så sparas talet. Efter du har klickat på dom så sparas nya tal
+			//när man klickar på = så summerar det alla tal som är sparad och räknar ut det med 
+			//det räknesätt du klicka.
 			if(operation.equals("+")) {
 				int Summa = Integer.parseInt(tal1) + Integer.parseInt(tal2);
 				inputField.textProperty().set(Summa + "");
@@ -357,6 +365,7 @@ public class Calculator1 extends Application implements EventHandler<ActionEvent
 			}
 		
 		
+			
 	}
 
 
