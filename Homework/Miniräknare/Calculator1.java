@@ -47,8 +47,7 @@ public class Calculator1 extends Application implements EventHandler<ActionEvent
 	Button buttonSumma;
 	Button buttonDelete;
 
-	// String tal = inputField.textProperty().get();
-	// String calc = "+";
+
 
 	// Minirknare layout
 	// mainmetod
@@ -56,12 +55,12 @@ public class Calculator1 extends Application implements EventHandler<ActionEvent
 	public void start(Stage primaryStage) throws Exception {
 
 		// layout
-		primaryStage.setTitle("Kalkulatorn");
+		primaryStage.setTitle("Ivans Miniräknare");
 
 		initField();
 		initButtons();
 		populateNumpad();
-		// gör att du inte kan skriva, man kan bara klicka.
+		// gör att du inte kan skriva, man kan bara klicka på buttons.
 		inputField.setEditable(false);
 
 		displayLayout.getChildren().add(inputField);
@@ -97,7 +96,7 @@ public class Calculator1 extends Application implements EventHandler<ActionEvent
 		numpadLayout.add(buttonDiv, 4, 3);
 	}
 
-	// placering buttons
+	// placering på mina buttons
 	private void initButtons() {
 		// Initiate all buttons
 		button1 = new Button("1");
@@ -299,7 +298,7 @@ public class Calculator1 extends Application implements EventHandler<ActionEvent
 				inputField.textProperty().set(Summa + "");
 
 			}
-
+			//ger operation inget värde
 			operation = "";
 		}
 		if (event.getSource().equals(buttonDelete)) {
@@ -311,7 +310,7 @@ public class Calculator1 extends Application implements EventHandler<ActionEvent
 //operation == null || operation.equals("") är när du klickar på
 //en operation så sparas det, och om du råkar klicka det igen (mer än 2 gånger) 
 //så kommer den se att en operation har skrivits innan så den kommer ta bort och inte låta det finnas 2 
-//operation.
+//operation direkt efter varandra.
 			if (operation == null || operation.equals("")) {
 				tal1 = inputField.textProperty().get();
 				operation = "+";
