@@ -14,5 +14,6 @@
 	<classpathentry kind="src" path="Repitition prog 2"/>
 	<classpathentry kind="src" path="Flagga"/>
 	<classpathentry kind="src" path="Miniräknare"/>
+	<classpathentry kind="src" path="Abstract class"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
