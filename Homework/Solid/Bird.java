@@ -19,7 +19,7 @@ public class Bird extends Animal {
     }
     
     void walk() {
-        System.out.println("Walking!");
+        System.out.println("Flying!");
 
     }
 }
