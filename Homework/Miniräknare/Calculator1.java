@@ -231,6 +231,12 @@ public class Calculator1 extends Application implements EventHandler<ActionEvent
 		// buttons som går att klicka, event handle gör att knapparna fungerar.
 		if (event.getSource().equals(button1)) {
 			inputField.textProperty().set(inputField.textProperty().get() + "1");
+			int test = 2;
+			if(test == 1) {
+				button1.setText("X");
+			} else if (test == 2) {
+				button1.setText("O");
+			}
 		}
 
 		if (event.getSource().equals(button2)) {

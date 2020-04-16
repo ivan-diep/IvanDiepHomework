@@ -16,5 +16,6 @@
 	<classpathentry kind="src" path="Miniräknare"/>
 	<classpathentry kind="src" path="Abstract class"/>
 	<classpathentry kind="src" path="Solid"/>
+	<classpathentry kind="src" path="Slutuppgift"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
